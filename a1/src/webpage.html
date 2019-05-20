@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- references -->
+<!-- https://www.w3schools.com/html/ lots of topic-->
+<!--https://www.youtube.com/watch?time_continue=202&v=DGeYsNpl4_g-->
+<!--https://www.youtube.com/watch?v=FEmysQARWFU -->
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="cssLayout.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="toolbar.css" media="screen" />
+  <script src="function.js"></script>
+</head>
+
+
+<header>
+<div class="container">
+  <h1 class="bar"></h1>
+    <nav>
+      <ul>
+
+        <li><a href='webpage.html'>Home</a></li>
+        <li><a href='about.html'>About</a></li>
+        <li><a href='avengers.html'>Avengers</a></li>
+
+        <div class="dropdown">
+          <button class="dropbtn">Social Media
+
+          </button>
+          <div class="dropdown-content">
+            <a href="http://www.facebook.com">Facebook</a>
+            <a href="http://www.twitter.com">Twitter</a>
+            <a href="http://www.youtube.com">Youtube</a>
+          </div>
+        </div>
+
+      </ul>
+    </nav>
+  </div>
+</header>
+<body>
+
+
+    <div id="myDIV" class="header">
+        <h2 style="margin:5px">ChitChat</h2>
+        <input type="search" id="input" placeholder="Enter comment here..." onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('addbutton').click()"  >
+        <span id="addbutton" onclick="addMessage()" class="addBtn">Add</span>
+        <span onclick="hideAll()" class="hideBtn">Hide All</span>
+        &ensp;&ensp;&ensp;&ensp;
+        <span onclick="showAll()" class="showBtn">Show All</span>
+        &ensp;&ensp;&ensp;&ensp;
+        <span onclick="removeAll()" class="removeBtn">Remove All</span>
+
+    </div>
+        <ul id="ul" class="list">
+        </ul>
+
+        <script>
+          var inputJSON = {
+            "messages":[
+              {"message": "CPSC 436i"},
+              {"message": "Peter Han"},
+              {"message": "UBC"}
+            ]
+          }
+
+          for(i = 0; i < inputJSON.messages.length; i++){
+            var inputMessage = inputJSON.messages[i].message;
+            var list = document.createElement("li");
+            var textNode = document.createTextNode(inputMessage);
+            list.appendChild(textNode);
+            document.getElementById("ul").appendChild(list);
+            var span = document.createElement("SPAN");
+            var x = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(x);
+            list.appendChild(span);
+            }
+            for (i = 0; i < closeButton.length; i++) {
+              closeButton[i].onclick = function() {
+                var div = this.parentElement;
+                div.style.display = "none";
+              }
+          }
+        </script>
+
+
+</body>
+</html>
