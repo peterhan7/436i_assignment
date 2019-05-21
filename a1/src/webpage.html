@@ -55,13 +55,16 @@
         </ul>
 
         <script>
-          var inputJSON = {
+          /*var inputJSON = {
             "messages":[
               {"message": "CPSC 436i"},
               {"message": "Peter Han"},
               {"message": "UBC"}
             ]
-          }
+          }*/
+		  
+		  var input = "{\"messages\":[{\"message\": \"CPSC 436i\"},{\"message\": \"Peter Han\"},{\"message\": \"UBC\"}]}"
+		  var inputJSON = JSON.parse(input);
 
           for(i = 0; i < inputJSON.messages.length; i++){
             var inputMessage = inputJSON.messages[i].message;
