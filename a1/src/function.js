@@ -4,7 +4,7 @@ function addMessage() {
   var inputMessage = document.getElementById("input").value;
   var textNode = document.createTextNode(inputMessage);
   list.appendChild(textNode);
-  if (input === "") {
+  if (inputMessage === "") {
     alert("You must write something!");
   } else {
     document.getElementById("ul").appendChild(list);
