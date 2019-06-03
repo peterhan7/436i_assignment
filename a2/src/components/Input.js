@@ -5,14 +5,41 @@ import { bindActionCreators } from "redux";
 
 
 class Input extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      message: ""
+    };
+    this.onHandleChange = this.onHandleChange.bind(this);
+    this.onHandleSubmit = this.onHandleSubmit.bind(this);
+  }
+  /*
+  onClick={()=>this.props.addMessage(this.refs.input.value)
+    */
   render(){
     return (
       <div>
-        <input type="search" ref="input" placeholder="Enter comment here..." />
+        <input type="search" ref="input" onChange={this.onHandleChange} value={this.state.message} placeholder="Enter comment here..." />
         <button className="addBtn"
-        onClick={()=>this.props.addMessage(this.refs.input.value)}>Submit</button>
+        onClick={this.onHandleSubmit}>Submit</button>
       </div>
     );
+  }
+
+
+  onHandleChange(e) {
+      this.setState({
+        message: e.target.value
+      });
+  }
+
+  onHandleSubmit(e) {
+    e.preventDefault();
+    const message = this.state.message;
+    this.props.addMessage(message);
+    this.setState({
+      message: ''
+    });
   }
 };
 

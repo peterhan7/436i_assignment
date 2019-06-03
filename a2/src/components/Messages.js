@@ -3,33 +3,8 @@ import { connect } from "react-redux";
 import { deleteMessage } from "../actions/TableActions";
 import { bindActionCreators } from "redux";
 
-
-  /*const Messages = ({messages, deleteMessage}) => {
-    console.log(messages);
-    const collection = messages.map(message => {
-        return(
-          <div key={message.key}>
-            <span>{message.message}</span>
-            <button onClick={() => this.props.deleteMessage(message.key)}>x</button>
-          </div>
-        );
-      });
-      return (<div>{collection}</div>);
-    }*/
-
-
-    /*return (messages.map(message => {
-        return(
-          <div key={message.key}>
-            <span>{message.message}</span>
-            <button onClick={() => this.props.deleteMessage(message.key)}>x</button>
-          </div>
-        );*/
       class Messages extends React.Component{
         render(){
-          console.log("gg");
-          console.log(this.props.messages);
-          console.log("gg");
           return (
           <div>{this.props.messages.map((message)=>
             <div key={message.key}>
@@ -37,9 +12,7 @@ import { bindActionCreators } from "redux";
               <button onClick={() => this.props.deleteMessage(message.key)}>x</button>
             </div>)}
           </div>);
-
-        /*return(<div>gg</div>);*/
-      };
+      }
     }
 
 
@@ -49,7 +22,7 @@ return { messages: state.messages }; //now it will appear as props
 };
 
 const mapDispatchToProps = dispatch => ({
-  deleteMessage: () => dispatch(deleteMessage())
+  deleteMessage: (key) => dispatch(deleteMessage(key))
 });
 
 
