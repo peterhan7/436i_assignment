@@ -2,16 +2,16 @@ import React from "react";
 import { connect } from "react-redux";
 import { deleteMessage } from "../actions/TableActions";
 import { bindActionCreators } from "redux";
-
+import "../cssLayout.css"
       class Messages extends React.Component{
         render(){
           return (
-          <div>{this.props.messages.map((message)=>
-            <div key={message.key}>
+          <ul>{this.props.messages.map((message)=>
+            <div key={message.key} className="message">
               <span>{message.message}</span>
-              <button onClick={() => this.props.deleteMessage(message.key)}>x</button>
+              <span className="close" onClick={() => this.props.deleteMessage(message.key)}>x</span>
             </div>)}
-          </div>);
+          </ul>);
       }
     }
 

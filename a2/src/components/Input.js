@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { addMessage, counter } from "../actions/TableActions";
 import { bindActionCreators } from "redux";
+import "../cssLayout.css"
+
 
 
 class Input extends React.Component {
