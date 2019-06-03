@@ -3,11 +3,13 @@ import Messages from "./Messages"
 import { connect } from "react-redux";
 import Input from "./Input"
 import { deleteMessage } from "../actions/TableActions"
+import "../cssLayout.css"
+
 
 class App extends React.Component{
   render(){
     return (
-      <div className="App">
+      <div className="header">
         <h1>ChitChat</h1>
         <Input />
         <Messages />

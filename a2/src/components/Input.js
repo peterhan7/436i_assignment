@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { addMessage, counter } from "../actions/TableActions";
 import { bindActionCreators } from "redux";
+import "../cssLayout.css"
+
 
 
 class Input extends React.Component {
@@ -20,7 +22,7 @@ class Input extends React.Component {
     return (
       <div>
         <input type="search" ref="input" onChange={this.onHandleChange} value={this.state.message} placeholder="Enter comment here..." />
-        <button className="addBtn"
+        <button className="addBtn" disabled={!this.state.message}
         onClick={this.onHandleSubmit}>Submit</button>
       </div>
     );
