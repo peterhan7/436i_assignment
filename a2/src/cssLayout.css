@@ -77,3 +77,8 @@ input {
 .addBtn:hover {
   background-color: #bbb;
 }
+
+.detail{
+  right: 0;
+  top: 10;
+}

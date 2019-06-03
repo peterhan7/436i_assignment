@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { deleteMessage } from "../actions/TableActions";
 import { bindActionCreators } from "redux";
 import "../cssLayout.css"
+import Popup from "reactjs-popup";
       class Messages extends React.Component{
         render(){
           return (
@@ -10,6 +11,11 @@ import "../cssLayout.css"
             <div key={message.key} className="message">
               <span>{message.message}</span>
               <span className="close" onClick={() => this.props.deleteMessage(message.key)}>x</span>
+              <Popup trigger={<button className="detail"> detail </button>} position="right center">
+                <div>
+                  <text>{message.message}</text>
+                </div>
+              </Popup>
             </div>)}
           </ul>);
       }
