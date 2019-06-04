@@ -5,7 +5,14 @@ import Input from "./Input"
 import Detail from "./Detail"
 import { deleteMessage } from "../actions/TableActions"
 import "../cssLayout.css"
-
+/*
+references:
+  Danya,
+  Stephanie,
+  Wesley F. ,
+  w3schools,
+  https://react-redux.js.org/introduction/quick-start,
+*/
 
 class App extends React.Component{
   render(){
