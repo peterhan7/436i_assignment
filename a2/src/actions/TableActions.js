@@ -14,3 +14,17 @@ export const deleteMessage = (key) => {
     payload: key
   };
 };
+
+export const showDetail = (message) => {
+  return {
+    type: "DETAIL",
+    message: message,
+    showPopup: true,
+  };
+};
+
+export const togglePopup = () => {
+  return {
+    type: "TOGGLE_POPUP",
+  }
+}
