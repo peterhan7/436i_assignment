@@ -9,17 +9,6 @@ const initialState = {
                       };
 
 const messageReducer = (state = initialState, action) => {
-  /*axios.get('http://localhost:3001/users/getMessage')
-    .then(function (response) {
-      // handle success
-      console.log(response.data);
-      console.log("gg");
-      return state.messages = response;
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });*/
   switch(action.type) {
     case "ADD_MESSAGE":
       return {...state, messages:[...state.messages,{key: action.key, message: action.payload}]}
@@ -36,6 +25,10 @@ const messageReducer = (state = initialState, action) => {
     case "REMOVE_ALL":
       state.messages = [];
       return {...state};
+    case "LOAD_ALL_MESSAGES":
+      console.log("reducer: ");
+      console.log(action.messages);
+      return {...state, messages: action.messages};
     }
     return state;
 

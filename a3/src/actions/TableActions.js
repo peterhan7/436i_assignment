@@ -1,5 +1,5 @@
 const axios = require('axios');
-let next = 4;   // 3 default stored message
+let next = Math.random();   // 3 default stored message
 
 export const addMessage = (message) => {
 
@@ -61,5 +61,14 @@ export const removeAll = () => {
 
   return {
     type: "REMOVE_ALL",
+  }
+}
+
+export const loadMessages = (messages) => {
+  console.log("action : ")
+  console.log(messages);
+  return{
+    type: "LOAD_ALL_MESSAGES",
+    payload: messages,
   }
 }
