@@ -14,7 +14,7 @@ const messageReducer = (state = initialState, action) => {
       return {...state, messages:[...state.messages,{key: action.key, message: action.payload}]}
     case "DELETE_MESSAGE":
       state.messages = state.messages.filter((message) =>{
-        return message.key !== action.payload;
+        return parseFloat(message.key).toFixed(15) !== parseFloat(action.payload).toFixed(15);
       });
       return {...state}
       break;
@@ -27,8 +27,8 @@ const messageReducer = (state = initialState, action) => {
       return {...state};
     case "LOAD_ALL_MESSAGES":
       console.log("reducer: ");
-      console.log(action.messages);
-      return {...state, messages: action.messages};
+      console.log(action.payload);
+      return {...state, messages: action.payload};
     }
     return state;
 

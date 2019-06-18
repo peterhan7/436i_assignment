@@ -17,80 +17,23 @@ const axios = require('axios');
         state = {
           items:[]
         }
-        /*apiCall(){
-          // Load initial message here
-          axios.get('http://localhost:3001/users/getMessage')
-            .then((response) => {
-              // handle success
-              console.log(response.data);
-              this.setState({items: response.data});
-              console.log("this.state in CDM is: " + this.state.items);
-            })
-            .catch(function (error) {
-              // handle error
-              console.log(error);
-            });
-        }
+        // Code snippet by the courtesy of Erica Choi
         componentDidMount(){
-          this.apiCall();
-          }
-
-        // the end
-        render(){
-          const { items } = this.state;
-          console.log("this.state in render is: " + items)
-          const messageList = items.length ? (
-            <ul>{items.map( message =>
-              <div key={message.key} className="message">
-                <span>{message.message}</span>
-                <span className="close" onClick={() => this.props.deleteMessage(message.key)}>x</span>
-                <button onClick={()=> this.props.showDetail(message.message)} >Show Detail</button>
-              </div>)}
-            </ul>
-          ) : (
-            <Loader
-             type="Puff"
-             color="#00BFFF"
-             height="100"
-             width="100"
-            />
-          )
-          return (
-            <div>
-            {messageList}
-            </div>
-          );
-        }*/
-
-        componentDidMount(){
-          // Load initial message here
-          /*axios.get('http://localhost:3001/users/getMessage')
-            .then((response) => {
-              // handle success
-              console.log(response.data);
-              console.log("gg");
-              //this.setState({messages:response.data})
-              this.props.loadMessages(response.data);
-              //this.setState(response);
-              //this.props.messages = response;
-            })
-            .catch(function (error) {
-              // handle error
-              console.log(error);
-            });*/
             const parent = this;
             parent.callApi()
+            // I implmented the action on my own, the only part I was confused about was the async handling
             .then(res => parent.props.loadMessages(res))
             .catch(err => console.log(err));
           }
 
-        callApi = async () => {
+          callApi = async () => {
           const response = await fetch('http://localhost:3001/users/getMessage');
           const body = await response.json();
           if(response.status !== 200){throw Error(body.message)}
           console.log(body);
           return body;
         }
+        // ----------- code snippet ends here
 
         render(){
           return (

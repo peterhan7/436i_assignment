@@ -20,7 +20,7 @@ router.delete('/deleteMessage/:key', function(req, res, next) {
   messages = messages.filter((message) => {
     console.log(req.params.key);
     console.log(message.key + " " + message.message);
-    return parseInt(message.key) !== parseInt(req.params.key);
+    return parseFloat(message.key).toFixed(15) !== parseFloat(req.params.key).toFixed(15);
   });
   res.json(messages);
 })
