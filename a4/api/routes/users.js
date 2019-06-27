@@ -1,13 +1,7 @@
 var express = require('express');
 var router = express.Router();
 let Messages = require('./messages.model');
-var mongoose = require('mongoose');
-var config = require('./DB.js');
-mongoose.Promise = global.Promise;
-mongoose.connect(config.DB, { useNewUrlParser: true }).then(
-  () => {console.log('Database is connected') },
-  err => { console.log('Can not connect to the database'+ err)}
-);
+
 
 //var messages = [{key: 1, message: "Peter Han"},{key: 2, message: "CPSC"},{key: 3, message: "436i"}];
 var messages = [];
